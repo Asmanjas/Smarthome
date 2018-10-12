@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+
+    <item
+        android:id="@+id/ipSetup"
+        android:title="Set IP address "
+        app:showAsAction="never"
+
+        />
+
+    <item
+        android:id="@+id/info"
+        android:title="Credits"
+        android:icon="@drawable/ic_info_outline_black_24dp"
+        app:showAsAction="never"
+        android:onClick="onClickInfo"
+        />
+
+
+
+</menu>

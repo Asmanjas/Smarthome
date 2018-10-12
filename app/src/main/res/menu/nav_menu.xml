@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <group android:checkableBehavior="single"/>
+
+
+    <!-- we can add icons here also to the items -->
+    <item android:title="Settings"
+        android:id="@+id/settings"/>
+    <item android:title="Status"
+        android:id="@+id/status"/>
+    <item android:title="checkList"
+        android:id="@+id/checklist"/>
+
+</menu>

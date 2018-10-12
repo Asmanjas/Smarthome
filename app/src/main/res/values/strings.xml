@@ -1,0 +1,23 @@
+<resources>
+    <string name="app_name">Smart home</string>
+
+    <string name="ok">ok</string>
+    <string name="cancel">cancel</string>
+    <string name="recent_use">Recently used</string>
+    <string name="Rooms">Rooms</string>
+    <string name="Kitchen">Kitchen</string>
+
+    <string-array name="places">
+
+        <item>Most used</item>
+        <item>Bedroom1</item>
+        <item>Bedroom2</item>
+        <item>Living Room</item>
+        <item>Kitchen</item>
+        <item>Washroom</item>
+        <item>Others</item>
+    </string-array>
+
+
+
+</resources>
