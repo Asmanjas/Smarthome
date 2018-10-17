@@ -4,11 +4,16 @@
 
 
     <!-- we can add icons here also to the items -->
+    <item android:title="Setup IP Address"
+        android:onClick="ipSetup"
+        android:id="@+id/ipsetup"/>
     <item android:title="Settings"
         android:id="@+id/settings"/>
-    <item android:title="Status"
-        android:id="@+id/status"/>
-    <item android:title="checkList"
-        android:id="@+id/checklist"/>
+    <item android:title="Setup wizard"
+        android:id="@+id/setupWizard"
+        />
+    <item android:title="Credits"
+        android:id="@+id/credits"
+        android:onClick="onClickInfo"/>
 
 </menu>

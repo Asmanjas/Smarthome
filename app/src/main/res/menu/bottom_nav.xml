@@ -2,7 +2,13 @@
 <menu xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:android="http://schemas.android.com/apk/res/android">
 
-    <item android:title="@string/recent_use" />
-    <item android:title="@string/Rooms" />
-    <item android:title="@string/Kitchen" />
+    <item android:title="@string/home"
+        android:icon="@drawable/ic_home"
+        android:id="@+id/navigation_home"/>
+    <item android:title="@string/Rooms"
+        android:icon="@drawable/ic_rroms"
+        android:id="@+id/navigation_rooms"/>
+    <item android:title="@string/automation"
+        android:icon="@drawable/ic_auto"
+        android:id="@+id/navigation_automation"/>
 </menu>
