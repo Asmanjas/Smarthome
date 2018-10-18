@@ -46,10 +46,10 @@
         android:id="@+id/textView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="8dp"
-
         android:layout_marginTop="8dp"
-        android:text="Bill Gates"
+
+        android:layout_marginEnd="8dp"
+        android:text="Test"
         android:textColor="@android:color/white"
         android:textSize="16dp"
         android:textStyle="bold"

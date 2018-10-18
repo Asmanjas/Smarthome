@@ -25,6 +25,9 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.Toast;
+
+import com.daimajia.androidanimations.library.Techniques;
+import com.daimajia.androidanimations.library.YoYo;
 import com.github.florent37.expansionpanel.ExpansionLayout;
 import com.github.florent37.expansionpanel.viewgroup.ExpansionLayoutCollection;
 
@@ -219,16 +222,17 @@ private BottomNavigationView.OnNavigationItemSelectedListener onNavigationItemSe
     }
 
 
-    //master bedroom click
-    public void onClickMasterBedroom(View view){
-        Master_Bedroom ms = new Master_Bedroom();
-        android.support.v4.app.FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
-        fragmentTransaction.replace(R.id.fragcons,ms, "master bedroom fragment");
-        fragmentTransaction.commit();
-    }
 
-    //home screen good night function
+    //home screen button functionalities start here
+
+
+    //home screen good night function,turn on motion sensor here as well , happy coding :)
     public void onClickGoodNightAll(View view) {
+
+        YoYo.with(Techniques.Pulse)
+                .duration(300)
+                .repeat(2)
+                .playOn(findViewById(R.id.good_night_all_card));
     }
 
 
@@ -236,10 +240,184 @@ private BottomNavigationView.OnNavigationItemSelectedListener onNavigationItemSe
     //home Screen good morning function
     public void onClickGoodMorningAll(View view) {
 
+        YoYo.YoYoString yoYoString = YoYo.with(Techniques.Pulse)
+                .duration(300)
+                .repeat(2)
+                .playOn(findViewById(R.id.good_morning_all_card));
+
     }
 
     //holiday button
     //on click holiday,turn all lights and fans off and turn on security system i.e. motion sensor
     public void onClickHoliday(View view) {
+
+
+        YoYo.with(Techniques.Pulse)
+                .duration(300)
+                .repeat(2)
+                .playOn(findViewById(R.id.holiday_card_fav));
+    }
+//favorite card living room light , home screen
+    public void onClickLivingRoomLightFavCard(View view) {
+        YoYo.with(Techniques.Pulse)
+                .duration(300)
+                .repeat(2)
+                .playOn(findViewById(R.id.living_room_light_card_fav));
+    }
+//living room fan favorite card
+    public void onClickLivingRoomFanFavCard(View view) {
+
+        YoYo.with(Techniques.Pulse)
+                .duration(300)
+                .repeat(2)
+                .playOn(findViewById(R.id.living_room_fan_card_fav));
+    }
+//master bedroom light favorite card
+    public void onClickMasterBedroomLightFavCard(View view) {
+
+        YoYo.with(Techniques.Pulse)
+                .duration(300)
+                .repeat(2)
+                .playOn(findViewById(R.id.master_bedroom_light_card_fav));
+    }
+//kitchen light favorite card
+    public void onClickKitchenLightFavCard(View view) {
+
+        YoYo.with(Techniques.Pulse)
+                .duration(300)
+                .repeat(2)
+                .playOn(findViewById(R.id.kitchen_light_card_fav));
+    }
+
+
+
+
+//home screen button functionallities end
+
+
+
+//rooms screen button functionalalities start
+
+    //master bedroom click
+    public void onClickMasterBedroom(View view){
+        Master_Bedroom ms = new Master_Bedroom();
+        android.support.v4.app.FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
+        fragmentTransaction.replace(R.id.fragcons,ms, "master bedroom fragment");
+        fragmentTransaction.commit();
+
+        //animation
+        YoYo.with(Techniques.Pulse)
+                .duration(300)
+                .repeat(2)
+                .playOn(findViewById(R.id.master_bedroom));
+    }
+
+
+//second bedroom card rooms screen
+    public void onClickSecondBedroom(View view) {
+
+        //animation
+        YoYo.with(Techniques.Pulse)
+                .duration(300)
+                .repeat(2)
+                .playOn(findViewById(R.id.second_bedroom));
+
+
+    }
+
+
+//kitchen card rooms screen
+    public void onClickkitchenCard(View view) {
+
+
+        //animation
+        YoYo.with(Techniques.Pulse)
+                .duration(300)
+                .repeat(2)
+                .playOn(findViewById(R.id.kitchenv));
+    }
+
+
+    //living room card rooms screen
+    public void onClickLivingRoomCard(View view) {
+
+        //animation
+        YoYo.with(Techniques.Pulse)
+                .duration(300)
+                .repeat(2)
+                .playOn(findViewById(R.id.living_room));
+    }
+
+
+    //washroom card rooms screen
+    public void onClickWashroomCard(View view) {
+
+        //animation
+        YoYo.with(Techniques.Pulse)
+                .duration(300)
+                .repeat(2)
+                .playOn(findViewById(R.id.washroom));
+    }
+
+
+
+    //rooms screen cards end
+
+
+
+    //master bedroom fragment  cards start here
+
+
+    //light card master bedroom fragment
+    public void onClickMasterBedroomLightCard(View view) {
+
+        //animation
+        YoYo.with(Techniques.Pulse)
+                .duration(300)
+                .repeat(2)
+                .playOn(findViewById(R.id.master_bedroom_light_card));
+    }
+
+//fan card master bedroom fragment
+    public void onClickMasterBedroomFanCard(View view) {
+
+        //animation
+        YoYo.with(Techniques.Pulse)
+                .duration(300)
+                .repeat(2)
+                .playOn(findViewById(R.id.master_bedroom_fan));
+    }
+
+
+    //table lamp card master bedroom fragment
+    public void onClickMasterBedroomTableLampCard(View view) {
+
+        //animation
+        YoYo.with(Techniques.Pulse)
+                .duration(300)
+                .repeat(2)
+                .playOn(findViewById(R.id.master_bedroom_table_lamp));
+    }
+
+
+    //good morning card master bedroom fragment
+    public void onClickMasterBedroomGoodMorningCard(View view) {
+
+        //animation
+        YoYo.with(Techniques.Pulse)
+                .duration(300)
+                .repeat(2)
+                .playOn(findViewById(R.id.master_bedroom_good_morning_card));
+    }
+
+
+    //good night card master bedroom fragment
+    public void onClickMasterBedroomGoodNightCard(View view) {
+
+        //animation
+        YoYo.with(Techniques.Pulse)
+                .duration(300)
+                .repeat(2)
+                .playOn(findViewById(R.id.master_bedroom_goodnight_card));
     }
 }
