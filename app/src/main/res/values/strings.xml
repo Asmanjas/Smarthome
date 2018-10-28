@@ -7,19 +7,9 @@
     <string name="Rooms">Rooms</string>
     <string name="Kitchen">Kitchen</string>
     <string name="home">Home</string>
-    <string name="automation">automation</string>
+    <string name="automation">Automation</string>
     <string name="ipHint">example 192.168.1.1</string>
 
-    <string-array name="places">
-
-        <item>Most used</item>
-        <item>Bedroom1</item>
-        <item>Bedroom2</item>
-        <item>Living Room</item>
-        <item>Kitchen</item>
-        <item>Washroom</item>
-        <item>Others</item>
-    </string-array>
 
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>

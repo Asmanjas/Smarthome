@@ -26,4 +26,5 @@ public class Second_Bedroom extends Fragment {
         return inflater.inflate(R.layout.fragment_second__bedroom, container, false);
     }
 
+
 }

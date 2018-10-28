@@ -19,17 +19,30 @@ import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
 import android.text.InputType;
+import android.util.Log;
+import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 
+import com.android.volley.Request;
+import com.android.volley.Response;
+import com.android.volley.VolleyError;
+import com.android.volley.VolleyLog;
+import com.android.volley.toolbox.JsonArrayRequest;
+import com.android.volley.toolbox.StringRequest;
 import com.daimajia.androidanimations.library.Techniques;
 import com.daimajia.androidanimations.library.YoYo;
 import com.github.florent37.expansionpanel.ExpansionLayout;
 import com.github.florent37.expansionpanel.viewgroup.ExpansionLayoutCollection;
+
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -39,6 +52,8 @@ public class MainActivity extends AppCompatActivity {
 
     private DrawerLayout mDrawerLayout;
     private String m_Text = "";
+    private String MCUServerAddress = " ";
+    TextView master_bedroom_light_toggle_text;
 
 private BottomNavigationView.OnNavigationItemSelectedListener onNavigationItemSelectedListener = new BottomNavigationView.OnNavigationItemSelectedListener() {
     @Override
@@ -58,10 +73,16 @@ private BottomNavigationView.OnNavigationItemSelectedListener onNavigationItemSe
                 return true;
 
             case R.id.navigation_automation:
+
+
                 Automation automation = new Automation();
                 android.support.v4.app.FragmentTransaction fragmentTransaction2 = getSupportFragmentManager().beginTransaction();
                 fragmentTransaction2.replace(R.id.cons, automation, "automation fragment");
                 fragmentTransaction2.commit();
+
+
+
+
                 return true;
         }
         return false;
@@ -74,10 +95,15 @@ private BottomNavigationView.OnNavigationItemSelectedListener onNavigationItemSe
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         mDrawerLayout = findViewById(R.id.drawer_layout);
+        //textview of cards
+        master_bedroom_light_toggle_text = (findViewById(R.id.master_bedroom_light_toggle_text));
 
         NavigationView navigationView = findViewById(R.id.nav_view);
         BottomNavigationView navigationView1 = (BottomNavigationView)findViewById(R.id.bottomNavigationView);
         navigationView1.setOnNavigationItemSelectedListener(onNavigationItemSelectedListener);
+
+
+
 
 //default fragment for home screen
         home home1 = new home();
@@ -120,8 +146,8 @@ private BottomNavigationView.OnNavigationItemSelectedListener onNavigationItemSe
                 switch (item.getItemId()){
 
                     case R.id.ipsetup:
-                        Toast.makeText(getApplicationContext(),"u clicked ipSetup",Toast.LENGTH_SHORT).show();
-                        mDrawerLayout.closeDrawers();
+                       // Toast.makeText(getApplicationContext(),"u clicked ipSetup",Toast.LENGTH_SHORT).show();
+                        //mDrawerLayout.closeDrawers();
                         break;
 
                     case R.id.settings:
@@ -209,6 +235,8 @@ private BottomNavigationView.OnNavigationItemSelectedListener onNavigationItemSe
             @Override
             public void onClick(DialogInterface dialog, int which) {
                 m_Text = input.getText().toString();
+                MCUServerAddress = m_Text + ":" + "80";
+
             }
         });
         builder.setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
@@ -217,6 +245,7 @@ private BottomNavigationView.OnNavigationItemSelectedListener onNavigationItemSe
                 dialog.cancel();
             }
         });
+        mDrawerLayout.closeDrawers();
 
         builder.show();
     }
@@ -292,7 +321,7 @@ private BottomNavigationView.OnNavigationItemSelectedListener onNavigationItemSe
 
 
 
-//home screen button functionallities end
+//home screen button functionalities end
 
 
 
@@ -302,7 +331,7 @@ private BottomNavigationView.OnNavigationItemSelectedListener onNavigationItemSe
     public void onClickMasterBedroom(View view){
         Master_Bedroom ms = new Master_Bedroom();
         android.support.v4.app.FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
-        fragmentTransaction.replace(R.id.fragcons,ms, "master bedroom fragment");
+        fragmentTransaction.replace(R.id.cons,ms, "master bedroom fragment");
         fragmentTransaction.commit();
 
         //animation
@@ -310,11 +339,18 @@ private BottomNavigationView.OnNavigationItemSelectedListener onNavigationItemSe
                 .duration(300)
                 .repeat(2)
                 .playOn(findViewById(R.id.master_bedroom));
+
+
     }
 
 
 //second bedroom card rooms screen
     public void onClickSecondBedroom(View view) {
+
+        Second_Bedroom sm = new Second_Bedroom();
+        android.support.v4.app.FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
+        fragmentTransaction.replace(R.id.cons,sm, "second bedroom fragment");
+        fragmentTransaction.commit();
 
         //animation
         YoYo.with(Techniques.Pulse)
@@ -328,6 +364,11 @@ private BottomNavigationView.OnNavigationItemSelectedListener onNavigationItemSe
 
 //kitchen card rooms screen
     public void onClickkitchenCard(View view) {
+
+        Kitchen km = new Kitchen();
+        android.support.v4.app.FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
+        fragmentTransaction.replace(R.id.cons,km, "Kitchen fragment");
+        fragmentTransaction.commit();
 
 
         //animation
@@ -346,6 +387,13 @@ private BottomNavigationView.OnNavigationItemSelectedListener onNavigationItemSe
                 .duration(300)
                 .repeat(2)
                 .playOn(findViewById(R.id.living_room));
+
+
+        Living_Room lr = new Living_Room();
+        android.support.v4.app.FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
+        fragmentTransaction.replace(R.id.cons,lr, "Living Room fragment");
+        fragmentTransaction.commit();
+
     }
 
 
@@ -357,6 +405,12 @@ private BottomNavigationView.OnNavigationItemSelectedListener onNavigationItemSe
                 .duration(300)
                 .repeat(2)
                 .playOn(findViewById(R.id.washroom));
+
+
+        Washroom ww = new Washroom();
+        android.support.v4.app.FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
+        fragmentTransaction.replace(R.id.cons,ww, "Washroom fragment");
+        fragmentTransaction.commit();
     }
 
 
@@ -371,11 +425,17 @@ private BottomNavigationView.OnNavigationItemSelectedListener onNavigationItemSe
     //light card master bedroom fragment
     public void onClickMasterBedroomLightCard(View view) {
 
+       String MCUServerAddress_final = "http://" +  MCUServerAddress + "/led/" + "1";
+        sendControlSingnal(MCUServerAddress_final);
         //animation
         YoYo.with(Techniques.Pulse)
                 .duration(300)
                 .repeat(2)
                 .playOn(findViewById(R.id.master_bedroom_light_card));
+
+
+        //master_bedroom_light_toggle_text.setText("ON");
+
     }
 
 //fan card master bedroom fragment
@@ -400,24 +460,54 @@ private BottomNavigationView.OnNavigationItemSelectedListener onNavigationItemSe
     }
 
 
-    //good morning card master bedroom fragment
-    public void onClickMasterBedroomGoodMorningCard(View view) {
 
-        //animation
-        YoYo.with(Techniques.Pulse)
-                .duration(300)
-                .repeat(2)
-                .playOn(findViewById(R.id.master_bedroom_good_morning_card));
+
+
+    //volly library use
+
+    public void sendControlSingnal(String url){
+
+        String  REQUEST_TAG = "myRequest";
+
+        final StringRequest stringRequest = new StringRequest(Request.Method.GET, url, new Response.Listener<String>() {
+            @Override
+            public void onResponse(String response) {
+            Toast.makeText(getApplicationContext(),"request sent",Toast.LENGTH_SHORT).show();
+            }
+        }, new Response.ErrorListener() {
+            @Override
+            public void onErrorResponse(VolleyError error) {
+                Log.d("bad request", "onErrorResponse: ");
+            }
+        });
+
+        AppSingleton.getInstance(this).addToRequestQueue(stringRequest, REQUEST_TAG);
+    }
+
+    public void onClickNavigationIcon(View view) {
+        mDrawerLayout.openDrawer(Gravity.START);
     }
 
 
-    //good night card master bedroom fragment
-    public void onClickMasterBedroomGoodNightCard(View view) {
+    //second bedroom cards
 
-        //animation
-        YoYo.with(Techniques.Pulse)
-                .duration(300)
-                .repeat(2)
-                .playOn(findViewById(R.id.master_bedroom_goodnight_card));
+    public void onClickSecondBedroomSecondLightCard(View view) {
+    }
+
+    public void onCLickSecondBedroomFanCard(View view) {
+    }
+
+    public void onClickSecondBedroomLightCard(View view) {
+    }
+
+
+    //living room  cards , remaining two living room cards in favorite section
+    public void onClickLivingRoomTVCard(View view) {
+    }
+
+
+
+//washroom cards
+    public void onClickWashroomLightCard(View view) {
     }
 }
