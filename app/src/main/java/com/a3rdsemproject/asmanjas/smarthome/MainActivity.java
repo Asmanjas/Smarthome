@@ -7,7 +7,12 @@ import android.app.FragmentTransaction;
 import android.content.DialogInterface;
 import android.graphics.Color;
 import android.os.Bundle;
+import android.text.Html;
+import android.widget.ViewAnimator;
 import android.support.annotation.NonNull;
+import android.transition.Scene;
+import android.transition.TransitionInflater;
+import android.transition.TransitionManager;
 import android.support.design.widget.BottomNavigationView;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
@@ -101,6 +106,8 @@ private BottomNavigationView.OnNavigationItemSelectedListener onNavigationItemSe
         NavigationView navigationView = findViewById(R.id.nav_view);
         BottomNavigationView navigationView1 = (BottomNavigationView)findViewById(R.id.bottomNavigationView);
         navigationView1.setOnNavigationItemSelectedListener(onNavigationItemSelectedListener);
+        navigationView.setItemIconTintList(null);
+        //navigationView.
 
 
 
@@ -132,7 +139,9 @@ private BottomNavigationView.OnNavigationItemSelectedListener onNavigationItemSe
                     public void onDrawerStateChanged(int newState) {
                         // Respond when the drawer motion state changes
                     }
+
                 }
+
         );
 
 
@@ -142,12 +151,9 @@ private BottomNavigationView.OnNavigationItemSelectedListener onNavigationItemSe
             public boolean onNavigationItemSelected(@NonNull MenuItem item) {
 
 
-
                 switch (item.getItemId()){
 
                     case R.id.ipsetup:
-                       // Toast.makeText(getApplicationContext(),"u clicked ipSetup",Toast.LENGTH_SHORT).show();
-                        //mDrawerLayout.closeDrawers();
                         break;
 
                     case R.id.settings:
@@ -163,9 +169,14 @@ private BottomNavigationView.OnNavigationItemSelectedListener onNavigationItemSe
                         mDrawerLayout.closeDrawers();
                         break;
 
+                    case R.id.documentation:
+                        Toast.makeText(getApplicationContext(),"you clicked documentation",Toast.LENGTH_SHORT).show();
+                        mDrawerLayout.closeDrawers();
+                        break;
+
                 }
 
-
+                //mDrawerLayout.closeDrawer(GravityCompat.START);
                 return true;
 
             }
@@ -193,7 +204,7 @@ private BottomNavigationView.OnNavigationItemSelectedListener onNavigationItemSe
     public void onClickInfo(MenuItem item){//to show credits
         AlertDialog.Builder builder1 = new AlertDialog.Builder(this);
         builder1.setMessage("Asmanjas, Suman, Shweta\n3rd Semester, MCA\nNITK, Surathkal");
-        builder1.setTitle("Developed by");
+        builder1.setTitle(Html.fromHtml("<font color='#000000'>Developed by</font>"));
         builder1.setCancelable(true);
         builder1.setPositiveButton(
                 "OK",
@@ -218,6 +229,8 @@ private BottomNavigationView.OnNavigationItemSelectedListener onNavigationItemSe
 
 
     public void ipSetup(MenuItem item){//get the ip setup dialog on screen
+
+        mDrawerLayout.closeDrawers();
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
         //builder.
         builder.setTitle("enter IP address of MCU device");
@@ -245,7 +258,7 @@ private BottomNavigationView.OnNavigationItemSelectedListener onNavigationItemSe
                 dialog.cancel();
             }
         });
-        mDrawerLayout.closeDrawers();
+
 
         builder.show();
     }
@@ -391,7 +404,8 @@ private BottomNavigationView.OnNavigationItemSelectedListener onNavigationItemSe
 
         Living_Room lr = new Living_Room();
         android.support.v4.app.FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
-        fragmentTransaction.replace(R.id.cons,lr, "Living Room fragment");
+        //BasicTransitionFragment fragmentx = new BasicTransitionFragment();
+        fragmentTransaction.replace(R.id.cons,lr,"Living Room fragment");
         fragmentTransaction.commit();
 
     }
@@ -509,5 +523,17 @@ private BottomNavigationView.OnNavigationItemSelectedListener onNavigationItemSe
 
 //washroom cards
     public void onClickWashroomLightCard(View view) {
+    }
+
+
+    //sensor cards start here
+
+    public void onClickMotionSensorCard(View view) {
+    }
+
+    public void onClickTempratureSensorCard(View view) {
+    }
+
+    public void onClickSmokeSensorCard(View view) {
     }
 }

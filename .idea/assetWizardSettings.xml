@@ -77,9 +77,10 @@
                         </option>
                         <option name="values">
                           <map>
+                            <entry key="assetSourceType" value="FILE" />
                             <entry key="color" value="3abe2a" />
-                            <entry key="outputName" value="ic_lightbulb" />
-                            <entry key="sourceFile" value="C:\Blender\temp-sensor.svg" />
+                            <entry key="outputName" value="ic_documentation" />
+                            <entry key="sourceFile" value="C:\Blender\icons\documentation.svg" />
                           </map>
                         </option>
                       </PersistentState>
